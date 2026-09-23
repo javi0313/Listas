@@ -69,6 +69,44 @@ public class Lista {
             
         
     }
+    
+    public void EliminarDespues( String ref){
+      if(this.primero == null){
+            System.out.println("Lista vacia");
+        }else{
+          Nodo actual = this.primero;
+            while(actual != null){
+                if(actual.getDato().equals(ref)){
+                    break;
+                }
+                actual = actual.getSiguiente();
+            }
+            
+            if(actual == null){
+                System.out.println("No se encontro el nodo con el dato");
+            }else{
+                Nodo actual1 = actual.getSiguiente();
+                actual.setSiguiente(actual1.getSiguiente());
+                actual1.setSiguiente(null);
+                actual1 = null;
+            }
+            
+        }
+    }
+    
+    
+    
+    public void Eliminar(){
+        
+        if(this.primero == null){
+            System.out.println("Lista vacia");
+        }else{
+            Nodo actual = this.primero;
+            this.primero = this.primero.getSiguiente();
+            actual.setSiguiente(null);
+           actual = null;
+        }
+    }
     public Nodo getPrimero() {
         return primero;
     }
